@@ -1,0 +1,44 @@
+---
+key: 3
+title: Contacto
+permalink: /contacto/
+options: nolanding
+excerpt: Mantengase en contacto con nosotros
+background-image: caustic_light.jpg
+script-includes:
+  - /js/jquery.validate.min.js
+script: |
+  $("#sendemail").validate();
+---
+
+<section>
+  <form id="sendemail" method="post" action="{{ site.data.tokens.mailaction }}">
+    <div class="row uniform">
+      <div class="6u 12u$(xsmall)">
+        <input type="text" name="name" id="name" value="" placeholder="Nombre" />
+      </div>
+      <div class="6u$ 12u$(xsmall)">
+        <input required type="email" name="email" id="email" value="" placeholder="Email" />
+      </div>
+      <div class="12u$">
+        <input required type="text" minlength="2" name="subject" id="subject" value="" placeholder="Asunto" />
+      </div>
+      <div class="12u$">
+        <textarea required name="textbody" id="textbody" placeholder="Escriba su mensaje" rows="6"></textarea>
+      </div>
+      <div class="6u$ 12u$(xsmall)">
+        <img src="{{ site.data.tokens.captchascript }}"/><br />
+        <input required type="text" name="captcha" id="captcha" placeholder="Escriba que numeros usted ve aqui" />
+      </div>
+      <div class="12u$">
+        <ul class="actions">
+          <li><input type="submit" value="Envie su mensaje" class="special" /></li>
+        </ul>
+      </div>
+    </div>
+    <input type="hidden" name="success"
+           value="{{ '/contact-success' | prepend: site.baseurl | prepend: site.url }}" />
+    <input type="hidden" name="failure"
+           value="{{ '/contact-failure' | prepend: site.baseurl | prepend: site.url }}" />
+  </form>
+</section>

@@ -1,0 +1,44 @@
+---
+key: 2
+title: Tú me preguntaras que si ESTO ES REAL
+permalink: /works/
+excerpt: Si amigo. ¡ES MUY REAL! Ya pasó con BINANCE.COM Y SU MONEDA BNB
+         Ya pasó con BRAVE y su moneda BAT (BAT ATENTION TOKEN)
+
+image: pic02.jpg
+background-image: pic02.jpg
+---
+<p>ÉSTE NO ES MI PRIMER PROYECTO CON CRIPTOMONEDAS, ES EL TERCERO. Mi primer proyecto fue con BAT de BRAVE. Yo, Argento Armiloj, personalmente vi ganancias con BAT, y las sigo viendo porque me depositan el día 8 de cada mes (empecé el 15 de junio 2019). El BAT (token de brave software) ya está posicionado sólidamente pagando 0.22 dólares por token y empezó con 0.10 dólares por token (igual que empezará CNB). Mi segundo proyecto fue con NBX de Netbox, cuya moneda aún no despega bien éste año, pero no todas las historias son iguales y la diferencia entre NETBOX y COINSBIT.IO es gigantesca. Coinsbit es un monstruo delante de Netbox y cuenta con mil veces más apoyo internacional que Netbox, amén de importantes inversionistas.
+
+    Hasta aquí les dejo la explicación;
+    
+    Afíliate y comienza un plan de promoción entre familiares y amigos para que se afilien. Por cada afiliación que tu consigas te dan 1.000 tokens de CNB, equivalentes a $100 USD, aparte de los 2.000 CNB ($200 USD) de inicio por haberte registrado por afiliación (ojo una sola vez te lo darán). Consigue todas las afiliaciones que puedas, y veamos que pasa en enero del 2020.
+    
+    OJO, SI TE REGISTRAS DIRECTAMENTE A LA PÁGINA SIN USAR UN LINK DE AFILIADO, NO TE DARÁN LOS 2.000 CNB ($200). Eso yo ya lo probé sin intención, al registrar un correo y equivocarme y no usar el link de afiliado; y no me dieron nada. NO COMETAS EL MISMO ERROR.
+    
+    Para más información de esto o de cualquier otro tema sobre ganancia de dinero por internet, con mucho gusto les podré orientar. Pronto estrenaré canal de YouTube sobre el tema.
+    </p>
+{%
+if site.categories.works %}
+<div class="table-wrapper">
+  <table>
+    <tbody>{%
+      include fn_groupsort_reverse.html unsorted=site.categories.works groupby='priority' sortby='date'
+%}{%  for work in sorted_list %}
+      <tr>
+        <td><b><a href="{{ work.url | prepend: site.baseurl }}">{{ work.title }}</a></b></td>
+        <td>{{ work.date | date: "%b %Y" }}</td>
+        <td>{{ work.excerpt | strip_html | truncatewords: 12 }}</td>
+        <td>
+          {% include techlist.html %}
+        </td>
+      </tr>{%
+      endfor %}
+    </tbody>
+  </table>
+</div>{%
+  if site.works_in_progress %}
+  <div class="works_inprogress">In-progress, more to come.</div>{%
+  endif %}{%
+endif
+%}
